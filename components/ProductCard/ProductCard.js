@@ -9,13 +9,12 @@ const Container = styled.View`
 
 const Card = styled.View`
   position: relative;
-  width: 80%;
+  width: 90%;
   height: 226px;
   cursor: pointer;
   margin-bottom: 32px;
   padding: 0;
   border-radius: 24px;
-  border-bottom-style: solid;
 
   /* clear: none;
   float: none; */
@@ -71,7 +70,7 @@ const ProductCard = ({ price, name }) => {
           <ProductTitle>{name}</ProductTitle>
           <ProductWrapp>
             <ProductPrice>{price} грн</ProductPrice>
-            <ProductButton>
+            <ProductButton onPress={() => alert("sssss")}>
               <ButtonText>Замовити</ButtonText>
             </ProductButton>
           </ProductWrapp>
