@@ -5,25 +5,19 @@ import {
   useNavigation,
   Link,
 } from "@react-navigation/native";
-
-import RollScreen from "./RollScreen";
-import SetScreen from "./SetScreen";
-import Header from "../components/Header/Header";
+import Main from "./Main";
 
 const MainStack = createStackNavigator();
-// <Routes>....</Routes> => Stack.Navigator
 
 export const Navigation = ({ navigation }) => {
   return (
     <NavigationContainer>
-      <Header />
       <MainStack.Navigator
         screenOptions={{
           headerShown: false,
         }}
       >
-        <MainStack.Screen name="RollScreen" component={RollScreen} />
-        <MainStack.Screen name="SetScreen" component={SetScreen} />
+        <MainStack.Screen name="Main" component={Main} />
       </MainStack.Navigator>
     </NavigationContainer>
   );
