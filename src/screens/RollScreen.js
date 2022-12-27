@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useEffect } from "react";
 
 import {
@@ -44,7 +43,14 @@ const RollScreen = () => {
             data={roll}
             renderItem={({ item }) => (
               <TouchableOpacity>
-                <ProductCard name={item.name} price={item.price} />
+                <ProductCard
+                  name={item.name}
+                  price={item.price}
+                  id={item.id}
+                  description={item.description}
+                  weight={item.weight}
+                  number={item.number}
+                />
               </TouchableOpacity>
             )}
           />

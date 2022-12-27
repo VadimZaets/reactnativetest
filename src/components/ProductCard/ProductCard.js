@@ -1,5 +1,7 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components/native";
+import { getCartList } from "../../redux/cart/cartSelector";
+import { clearCart, setItemsInCart } from "../../redux/cart/cartSlice";
 
 const Container = styled.View`
   display: flex;
@@ -62,7 +64,13 @@ const ButtonText = styled.Text`
   color: #fff;
 `;
 
-const ProductCard = ({ price, name }) => {
+const ProductCard = ({ price, name, weight, number, description, id }) => {
+  const dispatch = useDispatch();
+
+  const handleClick = (cart) => {
+    dispatch(setItemsInCart(cart));
+  };
+
   return (
     <Container>
       <Card>
@@ -71,7 +79,18 @@ const ProductCard = ({ price, name }) => {
           <ProductTitle>{name}</ProductTitle>
           <ProductWrapp>
             <ProductPrice>{price} грн</ProductPrice>
-            <ProductButton onPress={() => alert("sssss")}>
+            <ProductButton
+              onPress={() =>
+                handleClick({
+                  id,
+                  weight,
+                  number,
+                  name,
+                  description,
+                  price,
+                })
+              }
+            >
               <ButtonText>Замовити</ButtonText>
             </ProductButton>
           </ProductWrapp>

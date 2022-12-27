@@ -19,7 +19,7 @@ const SetScreen = () => {
   }, []);
   const isLoading = useSelector(getIsLoading);
   const sets = useSelector(getSetsList);
-
+  console.log("sets :>> ", sets);
   return (
     <View>
       {isLoading && (
@@ -41,7 +41,14 @@ const SetScreen = () => {
             data={sets}
             renderItem={({ item }) => (
               <TouchableOpacity>
-                <ProductCard name={item.name} price={item.price} />
+                <ProductCard
+                  name={item.name}
+                  price={item.price}
+                  id={item.id}
+                  description={item.description}
+                  weight={item.weight}
+                  number={item.number}
+                />
               </TouchableOpacity>
             )}
           />

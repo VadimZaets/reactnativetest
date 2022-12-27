@@ -7,7 +7,7 @@ export async function getRollsApi() {
   return data;
 }
 export async function getSetsApi() {
-  const { data } = await axios.get("/set");
+  const { data } = await axios.get("/sets");
 
   return data;
 }

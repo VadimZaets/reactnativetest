@@ -14,7 +14,7 @@ import {
 import AsyncStorage from "@react-native-async-storage/async-storage";
 // import userSlice from "./users/userSlice";
 import userMenuSlice from "./userMenu/userSlice";
-// import cartSlice from "./cart/cartSlice";
+import cartSlice from "./cart/cartSlice";
 // import infoSlice from "./Info/infoSlice";
 // import deliverySlice from "./delivery/deliverySlice";
 // import selfDeliverySlice from "./selfDelivery/selfDeliverySlice";
@@ -28,13 +28,12 @@ import userMenuSlice from "./userMenu/userSlice";
 const userMenuPersistConfig = {
   key: "menu",
   storage: AsyncStorage,
-  whitelist: ["roll", "sets"],
 };
-// const itemsCartPersistConfig = {
-//   key: "cart",
-//   storage,
-//   whitelist: ["itemsInCart", "itemsQuntity"],
-// };
+const itemsCartPersistConfig = {
+  key: "cart",
+  storage: AsyncStorage,
+  whitelist: ["itemsQuntity"],
+};
 // const infoPersistConfig = {
 //   key: "info",
 //   storage,
@@ -55,10 +54,10 @@ const userMenuPersistedReducer = persistReducer(
   userMenuSlice
 );
 
-// const itemsCartPersistedReducer = persistReducer(
-//   itemsCartPersistConfig,
-//   cartSlice
-// );
+const itemsCartPersistedReducer = persistReducer(
+  itemsCartPersistConfig,
+  cartSlice
+);
 // const infoPersistedReducer = persistReducer(infoPersistConfig, infoSlice);
 // const deliveryPersistedReducer = persistReducer(
 //   deliveryPersistConfig,
@@ -85,7 +84,7 @@ const store = configureStore({
   reducer: {
     //  user: userPersistedReducer,
     userMenu: userMenuPersistedReducer,
-    //  cart: itemsCartPersistedReducer,
+    cart: itemsCartPersistedReducer,
     //  info: infoPersistedReducer,
     //  delivery: deliveryPersistedReducer,
     //  selfDelivery: selfDeliveryPersistedReducer,
