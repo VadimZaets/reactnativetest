@@ -1,7 +1,7 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import Header from "../components/Header/Header";
-import RollScreen from "./RollScreen";
-import SetScreen from "./SetScreen";
+import RollScreen from "../screens/RollScreen";
+import SetScreen from "../screens/SetScreen";
 const ProductStack = createStackNavigator();
 
 const ProductNavigation = () => {

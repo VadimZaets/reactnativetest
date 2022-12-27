@@ -1,9 +1,9 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Cart from "./Cart";
-import ProductNavigation from "./ProductNavigation";
+import Cart from "../screens/Cart";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import ProductNavigation from "./ProductNavigation";
 const Tab = createBottomTabNavigator();
-export default function Main() {
+const MainNavigation = () => {
   return (
     <Tab.Navigator
       initialRouteName="Продукти"
@@ -33,4 +33,5 @@ export default function Main() {
       <Tab.Screen name="Корзина" component={Cart} />
     </Tab.Navigator>
   );
-}
+};
+export default MainNavigation;

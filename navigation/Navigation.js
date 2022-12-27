@@ -5,11 +5,11 @@ import {
   useNavigation,
   Link,
 } from "@react-navigation/native";
-import Main from "./Main";
+import MainNavigation from "./MainNavigation";
 
 const MainStack = createStackNavigator();
 
-export const Navigation = ({ navigation }) => {
+const Navigation = ({ navigation }) => {
   return (
     <NavigationContainer>
       <MainStack.Navigator
@@ -17,15 +17,10 @@ export const Navigation = ({ navigation }) => {
           headerShown: false,
         }}
       >
-        <MainStack.Screen name="Main" component={Main} />
+        <MainStack.Screen name="Main" component={MainNavigation} />
       </MainStack.Navigator>
     </NavigationContainer>
   );
 };
 
-//  <NavigationContainer>
-//    <Stack.Navigator>
-//      <Stack.Screen name="SetScreen" component={SetScreen} />
-//      <Stack.Screen name="RollScreen" component={RollScreen} />
-//    </Stack.Navigator>
-//  </NavigationContainer>
+export default Navigation;
