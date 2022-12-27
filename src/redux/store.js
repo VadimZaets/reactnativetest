@@ -32,7 +32,7 @@ const userMenuPersistConfig = {
 const itemsCartPersistConfig = {
   key: "cart",
   storage: AsyncStorage,
-  whitelist: ["itemsQuntity"],
+  whitelist: [],
 };
 // const infoPersistConfig = {
 //   key: "info",

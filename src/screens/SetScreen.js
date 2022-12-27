@@ -19,7 +19,7 @@ const SetScreen = () => {
   }, []);
   const isLoading = useSelector(getIsLoading);
   const sets = useSelector(getSetsList);
-  console.log("sets :>> ", sets);
+
   return (
     <View>
       {isLoading && (

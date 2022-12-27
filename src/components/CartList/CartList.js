@@ -13,12 +13,8 @@ const Container = styled.View`
 const CartCard = styled.View`
   position: relative;
   width: 90%;
-  /* display: flex;
-  flex-direction: column; */
   border-radius: 8px;
   padding: 24px 24px;
-  shadow-color: rgba(117, 118, 132, 0.3);
-  elevation: 1;
 `;
 const ImageTitleWrapp = styled.View`
   display: flex;
@@ -78,7 +74,6 @@ const CartList = ({
 }) => {
   const dispatch = useDispatch();
   const handleDelete = (cart) => {
-    console.log("cartid :>> ", cart.id);
     dispatch(deleteItemsFromCart({ id: cart.id }));
   };
   return (
