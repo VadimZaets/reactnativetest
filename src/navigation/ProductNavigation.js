@@ -13,6 +13,7 @@ const ProductNavigation = () => {
         screenOptions={{
           headerShown: false,
         }}
+        initialRouteName="SetScreen"
       >
         <ProductStack.Screen name="SetScreen" component={SetScreen} />
         <ProductStack.Screen name="RollScreen" component={RollScreen} />

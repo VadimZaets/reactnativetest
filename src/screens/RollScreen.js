@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect } from "react";
-import { useState } from "react";
+
 import {
   StyleSheet,
   Text,
@@ -10,27 +10,18 @@ import {
   TouchableOpacity,
   Pressable,
 } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
 import ProductCard from "../components/ProductCard/ProductCard";
+import { getRolls } from "../redux/userMenu/userOperation";
+import { getIsLoading, getRollList } from "../redux/userMenu/userSelector";
 
-const RollScreen = ({ navigation }) => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [items, setItems] = useState();
-  const getItems = () => {
-    setIsLoading(true);
-    axios
-      .get("https://6242cdd3b6734894c156b21f.mockapi.io/api/v1/Roll")
-      .then(({ data }) => {
-        setItems(data);
-      })
-      .catch((err) => {
-        console.log(err);
-        alert("Error");
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-  };
-  useEffect(getItems, []);
+const RollScreen = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getRolls());
+  }, []);
+  const isLoading = useSelector(getIsLoading);
+  const roll = useSelector(getRollList);
 
   return (
     <View>
@@ -50,7 +41,7 @@ const RollScreen = ({ navigation }) => {
       {!isLoading && (
         <View>
           <FlatList
-            data={items}
+            data={roll}
             renderItem={({ item }) => (
               <TouchableOpacity>
                 <ProductCard name={item.name} price={item.price} />

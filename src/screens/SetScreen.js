@@ -1,36 +1,24 @@
-import axios from "axios";
 import { useEffect } from "react";
-import { useState } from "react";
+
 import {
-  StyleSheet,
   Text,
   View,
   FlatList,
   ActivityIndicator,
   TouchableOpacity,
-  Pressable,
 } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
 import ProductCard from "../components/ProductCard/ProductCard";
+import { getSets } from "../redux/userMenu/userOperation";
+import { getIsLoading, getSetsList } from "../redux/userMenu/userSelector";
 
-const SetScreen = ({ navigation }) => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [items, setItems] = useState();
-  const getItems = () => {
-    setIsLoading(true);
-    axios
-      .get("https://6242cdd3b6734894c156b21f.mockapi.io/api/v1/items")
-      .then(({ data }) => {
-        setItems(data);
-      })
-      .catch((err) => {
-        console.log(err);
-        alert("Error");
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-  };
-  useEffect(getItems, []);
+const SetScreen = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getSets());
+  }, []);
+  const isLoading = useSelector(getIsLoading);
+  const sets = useSelector(getSetsList);
 
   return (
     <View>
@@ -50,7 +38,7 @@ const SetScreen = ({ navigation }) => {
       {!isLoading && (
         <View>
           <FlatList
-            data={items}
+            data={sets}
             renderItem={({ item }) => (
               <TouchableOpacity>
                 <ProductCard name={item.name} price={item.price} />
