@@ -1,7 +1,8 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Cart from "../screens/Cart";
+
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import ProductNavigation from "./ProductNavigation";
+import CartScreen from "../screens/CartScreen";
 const Tab = createBottomTabNavigator();
 const MainNavigation = () => {
   return (
@@ -30,7 +31,7 @@ const MainNavigation = () => {
       }}
     >
       <Tab.Screen name="Продукти" component={ProductNavigation} />
-      <Tab.Screen name="Корзина" component={Cart} />
+      <Tab.Screen name="Корзина" component={CartScreen} />
     </Tab.Navigator>
   );
 };

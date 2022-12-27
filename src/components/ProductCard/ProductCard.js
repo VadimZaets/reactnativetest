@@ -65,7 +65,7 @@ const ProductCard = ({ price, name }) => {
   return (
     <Container>
       <Card>
-        <ProductImage source={require("../../assets/dragon.png")} />
+        <ProductImage source={require("../../../assets/dragon.png")} />
         <ProductContent>
           <ProductTitle>{name}</ProductTitle>
           <ProductWrapp>
